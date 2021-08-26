@@ -1,0 +1,64 @@
+﻿<Window x:Class="MainApplicationPractice2.ScoresOfPlayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MainApplicationPractice2"
+        mc:Ignorable="d"
+        Title="ScoresOfPlayer" Height="300" Width="300">
+    
+    <Border Margin="10">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <!-- Info Showing -->
+                <RowDefinition />
+                <!-- Operation Insert-->
+                <RowDefinition Height="0.3*"/>
+            </Grid.RowDefinitions>
+
+            <DataGrid BeginningEdit="INFO_BeginningEdit" CurrentCellChanged="INFO_CurrentCellChanged"  Name ="INFO" AutoGenerateColumns="False" Grid.Row="0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding IdPlayer}" Width="*" Header="Player ID"/>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Id}" Width="*" Header="Score ID"/>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Day}" Width="*" Header="Journey"/>
+                    <DataGridTextColumn Binding="{Binding Score}" Width="*" Header="Score"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Operation Section -->
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <!-- Fields Section-->
+                    <RowDefinition/>
+                    <!-- Operation Selection -->
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!-- Fields Section-->
+                <Grid Margin="0 5 0 0" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <!-- Scoring -->
+                        <ColumnDefinition/>
+                        <!-- Day Number -->
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Column="0">
+                        <Label Padding="5 3 0 5" Margin="0 0 10 0">Score</Label>
+                        <TextBox Name="TXT_NewScore" Width="60"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1">
+                        <Label Padding="5 3 0 5" Margin="0 0 10 0">Day</Label>
+                        <ComboBox Name="DaySelector"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Operation Selection -->
+                <Button Margin="175 5 5 0" Grid.Row="1" Click="InsertButton_Click">Insert Score</Button>
+                <Button Margin="0 5 175 0" Grid.Row="1" Click="DeleteButton_Click">Delete Selected</Button>
+            </Grid>
+
+        </Grid>
+        
+    </Border>
+</Window>

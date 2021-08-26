@@ -1,0 +1,27 @@
+﻿<Window x:Class="ClassroomWeek6Exercice2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClassroomWeek6Exercice2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Border Margin="10">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <DataGrid ItemsSource="{Binding dataSet.Tables[Students]}" x:Name="InfoContainer" Height="200" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Width="*" Header="Surname" Binding="{Binding Surname}"/>
+                        <!--DataGridTextColumn Width="*" Header="Degree" Binding="{Binding Degree_ID}"/-->
+                        <DataGridComboBoxColumn  SelectedValuePath="[Degree_ID]" DisplayMemberPath="[Degree_Name]" x:Name="DegreeColumn" Width="*" SelectedValueBinding="{Binding Degree_ID}" Header="Degree Info"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </StackPanel>
+    </Border>
+</Window>

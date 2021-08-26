@@ -1,0 +1,60 @@
+﻿<Window x:Class="MainApplicationPractice2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MainApplicationPractice2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="525">
+    <Border Margin="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <!-- Filter Section -->
+                <RowDefinition Height="0.25*"/>
+                <!-- Data Section -->
+                <RowDefinition/>
+                <!-- Operations Section -->
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Filter section -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <!-- Filter by P. Name -->
+                    <ColumnDefinition/>
+                    <!-- Filter by P. Team -->
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Filter by P.Name -->
+                <StackPanel Grid.Column="0" Orientation="Vertical">
+                    <Label>Filter by Player Name</Label>
+                    <TextBox Name="TXT_PName" TextChanged="TextBox_TextChanged" Margin="5"></TextBox>
+                </StackPanel>
+
+                <!-- Filter by P.Team-->
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <Label>Filter by Team</Label>
+                    <TextBox Name="TXT_TName" TextChanged="TextBox_TextChanged" Margin="5"></TextBox>
+                </StackPanel>
+            </Grid>
+
+
+
+
+            <!-- Data Section -->
+            <DataGrid MouseDoubleClick="INFO_MouseDoubleClick" Name="INFO" AutoGenerateColumns="False" Margin="0 10" Grid.Row="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding ID}"  Width="0.2*" Header="PID" />
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}"  Width="*" Header="Player Name" />
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding TeamName}"  Width="*" Header="Player Team" />
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding TotalScore}"  Width="*" Header="Total Score" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Grid HorizontalAlignment="Right" Grid.Row="2">
+                <Button Name="BTN_SelectPlayer" Click="BTN_SelectPlayer_Click">Select Player</Button>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

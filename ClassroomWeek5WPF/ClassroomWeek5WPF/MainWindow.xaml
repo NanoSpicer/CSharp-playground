@@ -1,0 +1,61 @@
+﻿<Window x:Class="ClassroomWeek5WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClassroomWeek5WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="390" Width="600">
+    <Border Margin="15">
+        <StackPanel>
+            <!-- The top part. Buttons label and TextField-->
+            <Grid>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- Right column -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <!-- The label -->
+                        <Label Margin ="0 0 5 0" Grid.Column="0">Compute To</Label>
+                        <!-- The text box -->
+                        <TextBox x:Name="TXTBOX_Number" Width="150" Grid.Column="1" Padding="2"/>
+                    </Grid>
+                </StackPanel>
+                
+                <!-- Left column -->
+                <StackPanel Grid.Column="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="BTN_Compute" Margin="15 0 15 0" Grid.Column="0" Click="BTN_Compute_Click">Compute</Button>
+                        <Button x:Name="BTN_Stop" Margin="15 0 15 0" Grid.Column="1" Height="22" VerticalAlignment="Bottom" Click="BTN_Stop_Click">Stop</Button>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+
+            <ListView Margin="0 5 0 0" Height="270" x:Name="LISTVIEW_PrimeContainer">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Number" Width="100"/>
+                    </GridView>
+                </ListView.View>
+
+            </ListView>
+            
+            <TextBlock x:Name="LBL_Progress"  Padding="5" Margin="10 0">Progress</TextBlock>
+            
+        </StackPanel>
+    </Border>
+</Window>
